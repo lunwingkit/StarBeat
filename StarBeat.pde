@@ -30,7 +30,8 @@ void setup(){
 }
 
 void draw(){
-  if(musicPlayer.position() > 10000){
+  background(0);
+if(musicPlayer.position() > 10000){
     musicPlayer.rewind();
   }
   //System.out.println(musicPlayer.position());
