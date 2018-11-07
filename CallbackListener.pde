@@ -113,8 +113,6 @@ public class SongPlateListener implements CallbackListener{
           break;
           case(ControlP5.ACTION_RELEASED):
           println("RELEASED");
-          println("FUCK FUCK FUCK");
-          theEvent.getController().setPosition(0,0);
           break;
           case(ControlP5.ACTION_MOVE):
           println("x: " + mouseX + "  y: " + mouseY);

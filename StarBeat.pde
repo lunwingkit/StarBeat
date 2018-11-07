@@ -52,9 +52,6 @@ void draw() {
 
 
 
-
-
-
   for (Hand hand : leap.getHands ()) {
 
 
@@ -245,6 +242,7 @@ void mouseClicked() {
     musicPlayer.loop();
 }
 
+//This requires refactoring into CallbackListener class
 void mouseDragged(){
   if(screen == practiceMain){
     if(mouseX - pmouseX > 2 || mouseX - pmouseX < -2){

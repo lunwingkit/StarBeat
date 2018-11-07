@@ -14,7 +14,7 @@ public class Song{
   int poY;
   
   Song(ControlP5 cp5, PImage image, int poX, int poY){
-    albumjacket = cp5.addButton("testSong" + seq).setPosition(poX, poY).setImages(loadImage("src/static_songplate.png"), image, loadImage("src/009.png")).updateSize().setMoveable(true);
+    albumjacket = cp5.addButton("testSong" + seq).setPosition(poX, poY).setImages(loadImage("src/static_songplate.png"), image, image).updateSize().setMoveable(true);
     songname = cp5.addTextlabel("Song Name" + seq).setText("Vertex").setPosition(poX+80, poY+220).setColorValue(0xffffff60).setFont(createFont("Georgia",14));
     albumjacket.addCallback(new SongPlateListener());
     this.poX = poX;

@@ -38,7 +38,7 @@ class PracticeMain extends GUI{
     cp5.addDropdownList("All").setPosition(0,50).setBarHeight(50).setWidth(1600);
     Button easy = cp5.addButton("EASY").setPosition(480, 805).setSize(200,90);
     Button normal = cp5.addButton("NORMAL").setPosition(690, 805).setSize(200,90);
-    Button hard = cp5.addButton("HARD").setPosition(900, 805).setSize(200,90);
+    Button hard = cp5.addButton("HARD").setPosition(900, 805).setSize(200,90).setColorBackground(color(100,0,0)).setColorForeground(color(200,0,0)).setColorActive(color(255,0,0));
     Button start = cp5.addButton("START").setPosition(1200, 800).setSize(400,100);
     Button setting = cp5.addButton("Setting").setPosition(1500,100).setSize(100,50);
     
