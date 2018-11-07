@@ -12,7 +12,7 @@ public class PlayLog{
     this.flawlessCount = flawlessCount;
     this.greatCount = greatCount;
     this.missCount = missCount;
-    int[] count = {flawlessCount, greatCount, missCount}
+    int[] count = {flawlessCount, greatCount, missCount};
     score = calculateScore(count);
     achievementRate = calculateAchievementRate(count);
   }

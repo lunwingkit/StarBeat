@@ -13,34 +13,48 @@ import de.voidplus.leapmotion.*;
 
 Minim minim;
 AudioPlayer musicPlayer;
-Screen screen;
-ControlP5 guiController;
-LeapMotion leap;
 
-void setup(){
+GUI practiceMain;
+GUI practiceGameplay;
+GUI setting;
+GUI settingPopUp;
+
+LeapMotion leap;
+GUI screen;
+
+
+void setup() {
+  noStroke();
+  noFill();
+
   leap = new LeapMotion(this);
   minim = new Minim(this);
   musicPlayer = minim.loadFile("src/demo.mp3");
   musicPlayer.loop();
-  size(1600,900);
-  
-  guiController = new ControlP5(this);
-  screen = new PracticeMain(guiController);
+  size(1600, 900);
+
+  practiceMain = new PracticeMain(this);
+  practiceGameplay = new PracticeGameplay(this);
+  setting = new Setting(this);
+  settingPopUp = new SettingPopUp(this);
+
+  screen = practiceMain;
   screen.display();
 }
 
-void draw(){
+void draw() {
   background(0);
-if(musicPlayer.position() > 10000){
+  if (musicPlayer.position() > 5000) {
     musicPlayer.rewind();
   }
   //System.out.println(musicPlayer.position());
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   for (Hand hand : leap.getHands ()) {
 
 
@@ -77,7 +91,7 @@ if(musicPlayer.position() > 10000){
       PVector armWristPos      = arm.getWristPosition();
       PVector armElbowPos      = arm.getElbowPosition();
     }
-     // ==================================================
+    // ==================================================
     // 4. Finger
 
     Finger  fingerThumb        = hand.getThumb();
@@ -213,7 +227,7 @@ if(musicPlayer.position() > 10000){
       }
     }
   }
-    
+
   // ====================================================
   // 7. Devices
 
@@ -223,10 +237,14 @@ if(musicPlayer.position() > 10000){
     float deviceRange = device.getRange();
   }
 }
-  
-void mouseClicked(){
-  if(musicPlayer.isPlaying())
+
+void mouseClicked() {
+  if (musicPlayer.isPlaying())
     musicPlayer.pause();
   else
     musicPlayer.loop();
+}
+
+void mouseDragged(){
+  println("dragging...");
 }
