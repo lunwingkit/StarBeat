@@ -83,17 +83,3 @@ class SettingPopUp extends GUI{
     gui.cp5.show();
   }
 }
-public void controlEvent(ControlEvent theEvent){
-    println(theEvent.getController().getName());
-    
-    switch(theEvent.getController().getName()){
-      case "START":
-      println("GO!");
-      screen.display(practiceGameplay);
-      
-      break;
-      case "HARD":
-      println("THIS COULD BE VERY HARD!");
-      break;
-    }
-}
