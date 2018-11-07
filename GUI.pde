@@ -100,24 +100,32 @@ class Setting extends GUI{
 class AudioSetting extends GUI{
   AudioSetting(PApplet thePApplet){
     super(thePApplet);
+    //Silder for general volume
+    //Silder for music volume
+    //Silder for sound effect volume
   }
 }
 
 class DisplaySetting extends GUI{
   DisplaySetting(PApplet thePApplet){
     super(thePApplet);
+    //Drop-down Box for resolution
+    //Radio Button for full screen/window
   }
 }
 
 class GameplaySetting extends GUI{
   GameplaySetting(PApplet thePApplet){
     super(thePApplet);
+    //Slider for note speed
   }
 }
 
 class GeneralSetting extends GUI{
   GeneralSetting(PApplet thePApplet){
     super(thePApplet);
+    //Drop-down Box for language
+    //Radio Button for colorblind mode
   }
 }
 
