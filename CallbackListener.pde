@@ -123,3 +123,73 @@ public class SongPlateListener implements CallbackListener{
         }
   }
 }
+
+public class AudioButtonListener implements CallbackListener{
+  public void controlEvent(CallbackEvent theEvent){
+        switch(theEvent.getAction()){
+          case(ControlP5.ACTION_RELEASED):
+          println("RELEASED");
+          break;
+        }
+  }
+}
+
+public class DisplayButtonListener implements CallbackListener{
+  public void controlEvent(CallbackEvent theEvent){
+        switch(theEvent.getAction()){
+          case(ControlP5.ACTION_RELEASED):
+          println("RELEASED");
+          break;
+        }
+  }
+}
+
+public class GameplayButtonListener implements CallbackListener{
+  public void controlEvent(CallbackEvent theEvent){
+        switch(theEvent.getAction()){
+          case(ControlP5.ACTION_RELEASED):
+          println("RELEASED");
+          break;
+        }
+  }
+}
+
+public class GeneralButtonListener implements CallbackListener{
+  public void controlEvent(CallbackEvent theEvent){
+        switch(theEvent.getAction()){
+          case(ControlP5.ACTION_RELEASED):
+          println("RELEASED");
+          break;
+        }
+  }
+}
+
+public class ResetButtonListener implements CallbackListener{
+  public void controlEvent(CallbackEvent theEvent){
+        switch(theEvent.getAction()){
+          case(ControlP5.ACTION_RELEASED):
+          println("RELEASED");
+          break;
+        }
+  }
+}
+
+public class CancelButtonListener implements CallbackListener{
+  public void controlEvent(CallbackEvent theEvent){
+        switch(theEvent.getAction()){
+          case(ControlP5.ACTION_RELEASED):
+          println("RELEASED");
+          break;
+        }
+  }
+}
+
+public class SaveButtonListener implements CallbackListener{
+  public void controlEvent(CallbackEvent theEvent){
+        switch(theEvent.getAction()){
+          case(ControlP5.ACTION_RELEASED):
+          println("RELEASED");
+          break;
+        }
+  }
+}

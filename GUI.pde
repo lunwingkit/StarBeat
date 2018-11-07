@@ -76,10 +76,49 @@ class PracticeGameplay extends GUI{
 class Setting extends GUI{
    Setting(PApplet thePApplet){
     super(thePApplet);
-    cp5.addDropdownList("Setting").setBarHeight(50).setWidth(1600).close();
-    Button setting = cp5.addButton("SettingTest").setPosition(300,300).setSize(200,200);
-    setting.addCallback(new ConfirmSettingListener());
+    cp5.addDropdownList("Setting").setBarHeight(100).setWidth(1600).close();
+    Button returnBack = cp5.addButton("return").setPosition(0,0).setSize(100,100);
+    Button audio = cp5.addButton("audio").setPosition(0,100).setSize(300,200);
+    Button display = cp5.addButton("display").setPosition(0,300).setSize(300,200);
+    Button gameplay = cp5.addButton("gameplay").setPosition(0,500).setSize(300,200);
+    Button general = cp5.addButton("general").setPosition(0,700).setSize(300,200);
+    Button reset = cp5.addButton("reset").setPosition(400,800).setSize(400,100);
+    Button cancel = cp5.addButton("cancel").setPosition(800,800).setSize(400,100);
+    Button save = cp5.addButton("save").setPosition(1200,800).setSize(400,100);
+    
+    returnBack.addCallback(new ConfirmSettingListener());
+    audio.addCallback(new AudioButtonListener());
+    display.addCallback(new DisplayButtonListener());
+    gameplay.addCallback(new GameplayButtonListener());
+    general.addCallback(new GeneralButtonListener());
+    reset.addCallback(new ResetButtonListener());
+    cancel.addCallback(new CancelButtonListener());
+    save.addCallback(new SaveButtonListener());
    }
+}
+
+class AudioSetting extends GUI{
+  AudioSetting(PApplet thePApplet){
+    super(thePApplet);
+  }
+}
+
+class DisplaySetting extends GUI{
+  DisplaySetting(PApplet thePApplet){
+    super(thePApplet);
+  }
+}
+
+class GameplaySetting extends GUI{
+  GameplaySetting(PApplet thePApplet){
+    super(thePApplet);
+  }
+}
+
+class GeneralSetting extends GUI{
+  GeneralSetting(PApplet thePApplet){
+    super(thePApplet);
+  }
 }
 
 class SettingPopUp extends GUI{
