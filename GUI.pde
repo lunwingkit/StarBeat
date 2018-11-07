@@ -21,9 +21,13 @@ abstract class GUI{
   public void hide(){
     this.cp5.hide();
   }
+  
+  public void scrollSongList(int length){}
 }
 
 class PracticeMain extends GUI{
+  ArrayList<Song> songList;
+  
   PracticeMain(PApplet thePApplet){
     super(thePApplet);
     
@@ -38,15 +42,25 @@ class PracticeMain extends GUI{
     Button start = cp5.addButton("START").setPosition(1200, 800).setSize(400,100);
     Button setting = cp5.addButton("Setting").setPosition(1500,100).setSize(100,50);
     
-    Button songplateDisplayArea = cp5.addButton("area").setPosition(0,100).setSize(1600,650);
-    songplateDisplayArea.addCallback(new SongPlateDisplayAreaListener());
-    
-    Song song = new Song(cp5);
+    //Button songplateDisplayArea = cp5.addButton("area").setPosition(0,100).setSize(1600,650);
+    //songplateDisplayArea.addCallback(new SongPlateDisplayAreaListener());
+    songList = new ArrayList();
+    Song song = new Song(cp5, loadImage("src/003.png"), 200, 300);
+    Song song2 = new Song(cp5, loadImage("src/004.png"), 700, 300);
+    songList.add(song);
+    songList.add(song2);
     
     //Button song = cp5.addButton("songPlate").setPosition(700,300).setImages(loadImage("src/static_songplate.png"), loadImage("src/003.png"), loadImage("src/004.png")).updateSize();
     
     setting.addCallback(new SettingButtonListener());
     start.addCallback(new StartButtonListener());
+  }
+  
+  public void scrollSongList(int length){
+    for(Song song : songList){
+      song.albumjacket.setPosition(song.poX-length,song.poY);
+      song.poX -= length;
+    }
   }
 }
 
@@ -55,7 +69,7 @@ class PracticeGameplay extends GUI{
    PracticeGameplay(PApplet thePApplet){
     super(thePApplet);
     cp5.addDropdownList("Practice Mode - Gameplay").setBarHeight(50).setWidth(1600).close();
-    Button settingPopUp = cp5.addButton("SettingPopUp").setPosition(500,500).setSize(100,100);
+    Button settingPopUp = cp5.addButton("SettingPopUp").setPosition(1500,50).setSize(100,50);
     settingPopUp.addCallback(new SettingPopUpListener());
    }
 }

@@ -246,5 +246,10 @@ void mouseClicked() {
 }
 
 void mouseDragged(){
-  println("dragging...");
+  if(screen == practiceMain){
+    if(mouseX - pmouseX > 2 || mouseX - pmouseX < -2){
+      println("moving right");
+      screen.scrollSongList(mouseX - pmouseX);
+    }
+  }
 }

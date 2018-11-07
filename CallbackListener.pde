@@ -21,7 +21,6 @@ public class StartButtonListener implements CallbackListener{
           break;
           case(ControlP5.ACTION_RELEASED):
           println("RELEASED");
-          screen = setting;
           screen.display(practiceGameplay);
           break;
         }
@@ -119,6 +118,9 @@ public class SongPlateListener implements CallbackListener{
           break;
           case(ControlP5.ACTION_MOVE):
           println("x: " + mouseX + "  y: " + mouseY);
+          break;
+          case(ControlP5.ACTION_DRAG)://DOES NOT WORK
+          println("D!R!A!G!I!N!G!");
           break;
         }
   }

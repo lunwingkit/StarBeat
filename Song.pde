@@ -1,22 +1,25 @@
+static int seq = 0;
+
 public class Song{
   PImage background = loadImage("src/static_songplate.png");
-  String songName;
-  String composerName;
-  String chartMakerName;
   AudioPlayer player;
   //Album jacket;
   int BPM;
   ArrayList<PlayLog> playLogList;
   PlayLog bestRecord;
   
-  Song(String songName, String compsoerName, String chartMakerName){
-    playLogList = new ArrayList<PlayLog>();
-  }
+  Button albumjacket;
+  Textlabel songname;
+  int poX;
+  int poY;
   
-  Song(ControlP5 cp5){
-    Button test = cp5.addButton("testSong").setPosition(700,300).setImages(loadImage("src/static_songplate.png"), loadImage("src/003.png"), loadImage("src/009.png")).updateSize().setMoveable(true);
-    cp5.addTextlabel("Song Name").setText("Vertex").setPosition(750,550).setColorValue(0xffffff00).setFont(createFont("Georgia",14));
-    test.addCallback(new SongPlateListener());
+  Song(ControlP5 cp5, PImage image, int poX, int poY){
+    albumjacket = cp5.addButton("testSong" + seq).setPosition(poX, poY).setImages(loadImage("src/static_songplate.png"), image, loadImage("src/009.png")).updateSize().setMoveable(true);
+    songname = cp5.addTextlabel("Song Name" + seq).setText("Vertex").setPosition(poX+80, poY+220).setColorValue(0xffffff60).setFont(createFont("Georgia",14));
+    albumjacket.addCallback(new SongPlateListener());
+    this.poX = poX;
+    this.poY = poY;
+    seq++;
   }
   
 }
