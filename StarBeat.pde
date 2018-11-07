@@ -22,7 +22,6 @@ GUI settingPopUp;
 LeapMotion leap;
 GUI screen;
 
-
 void setup() {
   noStroke();
   noFill();
@@ -48,7 +47,7 @@ void draw() {
     musicPlayer.rewind();
   }
   //System.out.println(musicPlayer.position());
-
+  
 
 
 

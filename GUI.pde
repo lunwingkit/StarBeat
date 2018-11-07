@@ -34,8 +34,8 @@ class PracticeMain extends GUI{
     //guiController.addTextfield("ds");
    
    
-    cp5.addDropdownList("Practice Mode").setBarHeight(50).setWidth(1600).addItem("Practice Mode", null).addItem("Freestyle Mode", null).close();
-    cp5.addDropdownList("All").setPosition(0,50).setBarHeight(50).setWidth(1600);
+    cp5.addDropdownList("Practice Mode").setBarHeight(50).setWidth(1600).addItem("Practice Mode", 0).addItem("Freestyle Mode", 1).close();
+    cp5.addDropdownList("All").setPosition(0,50).setBarHeight(50).setWidth(1600).addItem("All",0).addItem("Genre",1).addItem("Name",2).close();
     Button easy = cp5.addButton("EASY").setPosition(480, 805).setSize(200,90);
     Button normal = cp5.addButton("NORMAL").setPosition(690, 805).setSize(200,90);
     Button hard = cp5.addButton("HARD").setPosition(900, 805).setSize(200,90).setColorBackground(color(100,0,0)).setColorForeground(color(200,0,0)).setColorActive(color(255,0,0));
@@ -58,8 +58,7 @@ class PracticeMain extends GUI{
   
   public void scrollSongList(int length){
     for(Song song : songList){
-      song.albumjacket.setPosition(song.poX-length,song.poY);
-      song.poX -= length;
+      song.move(length);
     }
   }
 }
