@@ -11,19 +11,24 @@ public class NodeCreator : MonoBehaviour {
     private int line = 0;
     public int selector = 0;
     private List<List<string>> MAP = new List<List<string>>();
+    public string fileName;
 
-    private void Awake()
+    private void Start()
     {
-
+        print("Creator Start");
         nodeParent = gameObject.transform.parent.gameObject;
         destination = GameObject.Find(nodeParent.name + "/DestroyPosition");
         selector = int.Parse(nodeParent.name.Replace("NodeLine", ""));
-        MAP = csvReader.readCSV(@"text");
-    }
 
-	// Use this for initialization
-	void Start () {
-	}
+        try
+        {
+            MAP = csvReader.readCSV(@fileName);
+        }
+        catch (System.NullReferenceException e)
+        {
+            Debug.Log(e);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

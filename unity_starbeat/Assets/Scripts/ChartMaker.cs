@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MAP : MonoBehaviour {
+public class ChartMaker : MonoBehaviour {
     private CSVWriter csvWriter = new CSVWriter();
     private List<List<string>> csv = new List<List<string>>();
     private Text text;
@@ -13,6 +13,7 @@ public class MAP : MonoBehaviour {
     int f = 0;
     int g = 0;
     float time = 0;
+    public int fileSequence;
     
     void LateUpdate()
     {
@@ -56,7 +57,7 @@ public class MAP : MonoBehaviour {
 
     private void OnApplicationQuit()
     {
-        csvWriter.writeCSV(csv, "text");
+        csvWriter.writeCSV(csv, "text" + fileSequence.ToString());
     }
 	// Use this for initialization
 	void Start () {

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4ABD25F2-7453-1E14-1C63-BCE00338D1E5}</ProjectGuid>
+    <ProjectGuid>{4F087DF3-08EB-D028-AF59-8A9CD33EF2D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -54,12 +54,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Audio.cs" />
+     <Compile Include="Assets\Scripts\ChartMaker.cs" />
+     <Compile Include="Assets\Scripts\ChartManager.cs" />
      <Compile Include="Assets\Scripts\CheckTiming.cs" />
      <Compile Include="Assets\Scripts\CSVReader.cs" />
      <Compile Include="Assets\Scripts\CSVWriter.cs" />
      <Compile Include="Assets\Scripts\FeedbackDisplay.cs" />
      <Compile Include="Assets\Scripts\JudgmentFeedback.cs" />
-     <Compile Include="Assets\Scripts\MAP.cs" />
      <Compile Include="Assets\Scripts\NodeCreator.cs" />
      <Compile Include="Assets\Scripts\NodeMove.cs" />
      <Compile Include="Assets\Scripts\TapFeedback.cs" />
@@ -119,16 +120,16 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/HP-USER/Desktop/Y3S1/CS3483/Final StarBeat/Final Project/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/HP-USER/Documents/GitHub/StarBeat/unity_starbeat/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/HP-USER/Desktop/Y3S1/CS3483/Final StarBeat/Final Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/HP-USER/Documents/GitHub/StarBeat/unity_starbeat/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/HP-USER/Desktop/Y3S1/CS3483/Final StarBeat/Final Project/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/HP-USER/Documents/GitHub/StarBeat/unity_starbeat/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/HP-USER/Desktop/Y3S1/CS3483/Final StarBeat/Final Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/HP-USER/Documents/GitHub/StarBeat/unity_starbeat/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
