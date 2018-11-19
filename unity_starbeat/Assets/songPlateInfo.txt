@@ -1,0 +1,26 @@
+[
+{
+"songName":"larva",
+"songWriter":"writer",
+"chartMaker":"maker",
+"bpm":"210",
+"mapingLevelAchievement":
+[
+{"difficulty":"easy", "level":"5", "achievementRate":"100%"},
+{"difficulty":"normal", "level":"7", "achievementRate":"100%"},
+{"difficulty":"hard", "level":"10", "achievementRate":"100%"}
+]
+},
+{
+"songName":"Bad Apple",
+"songWriter":"writer",
+"chartMaker":"maker",
+"bpm":"120",
+"mapingLevelAchievement":
+[
+{"difficulty":"easy", "level":"4", "achievementRate":"100%"},
+{"difficulty":"normal", "level":"6", "achievementRate":"100%"},
+{"difficulty":"hard", "level":"8", "achievementRate":"100%"}
+]
+}
+]
