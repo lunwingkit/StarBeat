@@ -239,6 +239,7 @@
      <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\XRSupportUtil.cs" />
      <Compile Include="Assets\LeapMotion\Core\Scripts\XR\LeapEyeDislocator.cs" />
      <Compile Include="Assets\LeapMotion\Core\Scripts\XR\XRHeightOffset.cs" />
+     <Compile Include="Assets\Scripts\DontDestroyOnLoad.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Audio.cs" />
      <Compile Include="Assets\Scripts\Gameplay\ButtonExit.cs" />
      <Compile Include="Assets\Scripts\Gameplay\ButtonOpenPanel.cs" />
@@ -249,6 +250,7 @@
      <Compile Include="Assets\Scripts\Gameplay\CSVReader.cs" />
      <Compile Include="Assets\Scripts\Gameplay\CSVWriter.cs" />
      <Compile Include="Assets\Scripts\Gameplay\FeedbackDisplay.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\GameplayController.cs" />
      <Compile Include="Assets\Scripts\Gameplay\JudgmentFeedback.cs" />
      <Compile Include="Assets\Scripts\Gameplay\NodeCreator.cs" />
      <Compile Include="Assets\Scripts\Gameplay\NodeMove.cs" />

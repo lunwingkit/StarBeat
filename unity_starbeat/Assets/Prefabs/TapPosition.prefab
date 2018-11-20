@@ -124,8 +124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a724ba5749be8e84090b697819dcba54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flawless: 0
-  great: 0
-  good: 0
-  miss: 0
+  fCount: 0
+  grCount: 0
+  gCount: 0
+  mCount: 0
   tapFeedback: {fileID: 0}
+  judgmentFeedback: {fileID: 0}
+  feedbackDisplay: {fileID: 0}

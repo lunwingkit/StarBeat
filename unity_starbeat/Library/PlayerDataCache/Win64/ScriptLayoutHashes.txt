@@ -2,9 +2,10 @@ WindowsStandalone
 PlayerPath?
 C:/Users/HP-USER/Desktop/build/Final Project.exe
 SceneListBegin?
-Assets/Scenes/Setting.unity
 Assets/Scenes/SongSelection.unity
+Assets/Scenes/Setting.unity
 Assets/Scenes/Gameplay.unity
+Assets/Scenes/_preload.unity
 SceneListEnd?
 c422dd62785a6d0afa870fbd111886ce Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 7b803eb2910e9b4cd5e521ae07b9f7d6 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
@@ -263,3 +264,10 @@ e8d6d906ad5bceeee2319002ac6cccac Assembly-CSharp.dll:Leap.Unity.StationaryTestLe
 8364b9e38689fa41bb10b1202f07066c Assembly-CSharp.dll:.TitleBar
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.ButtonStart
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.ButtonSetting
+5f728dce089fe3c222e34bb8f241d4e1 Assembly-CSharp.dll:.SetUpSongPlate
+25d4a772988121dc1ef4e572f0698b75 Assembly-CSharp.dll:.SongPlate
+55eb9d338df87fe0fbccdfa4d91bb4a2 Assembly-CSharp.dll:.ButtonOpenPanel
+55eb9d338df87fe0fbccdfa4d91bb4a2 Assembly-CSharp.dll:.ButtonResume
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.ButtonExit
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.GameplayController
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.DontDestroyOnLoad
