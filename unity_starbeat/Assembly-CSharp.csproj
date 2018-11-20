@@ -261,8 +261,8 @@
      <Compile Include="Assets\Scripts\Setting\DropDownResolution.cs" />
      <Compile Include="Assets\Scripts\SongSelection\ButtonSetting.cs" />
      <Compile Include="Assets\Scripts\SongSelection\ButtonStart.cs" />
-     <Compile Include="Assets\Scripts\SongSelection\SetUpSongPlate.cs" />
      <Compile Include="Assets\Scripts\SongSelection\SongPlate.cs" />
+     <Compile Include="Assets\Scripts\SongSelection\SongPlateManager.cs" />
      <Compile Include="Assets\Scripts\SongSelection\TitleBar.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

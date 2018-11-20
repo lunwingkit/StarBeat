@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Audio : MonoBehaviour {
-    AudioSource audioData;
+    public static Audio instance;
+    public AudioSource audioData;
     public float time;
     public static bool isPaused = false;
 
     // Use this for initialization
     void Start () {
+        instance = this;
         audioData = GetComponent<AudioSource>();
     }
 

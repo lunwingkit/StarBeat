@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
-public class SetUpSongPlate : MonoBehaviour {
+public class SongPlateManager : MonoBehaviour {
+    public static SongPlateManager instance;
     GameObject songPlate;
     Text songName;
     Text songWriter;
@@ -13,11 +14,23 @@ public class SetUpSongPlate : MonoBehaviour {
     public GameObject sample;
     public GameObject parent;
     public static int x = 0;
+    List<GameObject> songPlateList;
+    float differencePositionX;
+
+    public GameObject selectedSongPlate;
+
 
 	// Use this for initialization
 	void Start () {
-
+        instance = this;
         parent = GameObject.Find("SongPlateContainer");
+        songPlateList = new List<GameObject>();
+
+        //Find position From localPosition
+        Vector2 v1 = transform.TransformPoint(new Vector2(sample.transform.localPosition.x + 0, sample.transform.localPosition.y));
+        Vector2 v2 = transform.TransformPoint(new Vector2(sample.transform.localPosition.x + 200, sample.transform.localPosition.y));
+        differencePositionX = v2.x - v1.x;
+
         string filePath = Application.dataPath + "/songPlateInfo.txt";
         readJson(filePath);
     }
@@ -34,15 +47,31 @@ public class SetUpSongPlate : MonoBehaviour {
                 {
 
                     string songInfo = reader.ReadLine();
-                    string difficultyInfo = reader.ReadLine();
+                    string chartDataPath1 = reader.ReadLine();
+                    string chartDataPath2 = reader.ReadLine();
+                    string chartDataPath3 = reader.ReadLine();
+
+                    print(songInfo);
+                    print(chartDataPath1);
+                    print(chartDataPath2);
+                    print(chartDataPath3);
                     Song newSong = JsonUtility.FromJson<Song>(songInfo);
-                    Difficulty songDifficulty = JsonUtility.FromJson<Difficulty>(difficultyInfo);
-                    newSong.difficulty = songDifficulty;
+                    Chart newChart1 = JsonUtility.FromJson<Chart>(chartDataPath1);
+                    Chart newChart2 = JsonUtility.FromJson<Chart>(chartDataPath2);
+                    Chart newChart3 = JsonUtility.FromJson<Chart>(chartDataPath3);
+                    newSong.chartDataList.Add(newChart1);
+                    newSong.chartDataList.Add(newChart2);
+                    newSong.chartDataList.Add(newChart3);
                     songList.Add(newSong);
+
+                    print(newSong.ToString());
+                    print(newChart1.ToString());
+                    print(newChart2.ToString());
+                    print(newChart3.ToString());
                 }
                 foreach (Song song in songList)
                 {
-                    createSongPlate(song);
+                    songPlateList.Add(createSongPlate(song));
                 }
             }
         }
@@ -50,7 +79,7 @@ public class SetUpSongPlate : MonoBehaviour {
             print("Cannot Find Json File");
     }
 
-    public void createSongPlate(Song song)
+    public GameObject createSongPlate(Song song)
     {
         
         var plate = (GameObject)Instantiate(sample, parent.transform);
@@ -62,6 +91,35 @@ public class SetUpSongPlate : MonoBehaviour {
         x++;
         plate.transform.localRotation = sample.transform.localRotation;
         plate.transform.localScale = sample.transform.localScale;
+        return plate;
+    }
+
+    public void select(GameObject songPlate)
+    {
+        float x = 0f + Screen.width / 2;
+        float y = songPlate.transform.position.y;
+
+
+        //Before Selected SongPlate (Exclusive)
+        int count = 1;
+        for(int i = songPlateList.IndexOf(songPlate) - 1; i >= 0; i--)
+        {
+            songPlateList[i].transform.position = new Vector2(x - differencePositionX * count, y);
+            count++;
+        }
+
+        //After Selected SongPlate (Inclusive)
+        count = 0;
+        for (int i = songPlateList.IndexOf(songPlate); i < songPlateList.Count; i++)
+        {
+            songPlateList[i].transform.position = new Vector2(x + differencePositionX * count, y);
+            count++;
+        }
+
+        selectedSongPlate = songPlate;
+
+        //show level
+        //show achievement
     }
 }
 
@@ -70,25 +128,45 @@ public class Song
 {
     public string songName;
     public string songWriter;
-    public string chartMaker;
     public string bpm;
-    public Difficulty difficulty;
+    public string audioDataPath;
+    public List<Chart> chartDataList = new List<Chart>();
+
+    public override string ToString()
+    {
+        return songName + " " + songWriter + " " + bpm + " " + audioDataPath;
+    }
 }
 
-public class Difficulty
+public class Chart
 {
-    public string easy;
-    public string normal;
-    public string hard;
+    public Difficulty difficulty;
+    public string level;
+    public string chartMaker;
+    public string chartDataPath;
+
+    public override string ToString()
+    {
+        return difficulty.ToString() + " " + level + " " + chartMaker + " " + chartDataPath;
+    }
+
+}
+public enum Difficulty
+{
+    EASY,
+    NORMAL,
+    HARD
 }
 
 public class PlayRecord
 {
     public Song song;
+    public Difficulty difficulty;
     public int score;
     public float achievment;
     public int combo;
 }
+
 
 /*
             Song loadData = JsonUtility.FromJson<Song>(dataAsJson);

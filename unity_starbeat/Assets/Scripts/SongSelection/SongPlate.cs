@@ -12,8 +12,10 @@ public class SongPlate : MonoBehaviour {
     }
     public void onClick()
     {
-        audioData.Play(0);
-        
+
+        //        audioData.Play(0);
+
         //his.transform.localPosition = new Vector3(0f, 0f, 0f);
+        SongPlateManager.instance.select(this.gameObject);
     }
 }
