@@ -1,26 +1,8 @@
-[
-{
-"songName":"larva",
-"songWriter":"writer",
-"chartMaker":"maker",
-"bpm":"210",
-"mapingLevelAchievement":
-[
-{"difficulty":"easy", "level":"5", "achievementRate":"100%"},
-{"difficulty":"normal", "level":"7", "achievementRate":"100%"},
-{"difficulty":"hard", "level":"10", "achievementRate":"100%"}
-]
-},
-{
-"songName":"Bad Apple",
-"songWriter":"writer",
-"chartMaker":"maker",
-"bpm":"120",
-"mapingLevelAchievement":
-[
-{"difficulty":"easy", "level":"4", "achievementRate":"100%"},
-{"difficulty":"normal", "level":"6", "achievementRate":"100%"},
-{"difficulty":"hard", "level":"8", "achievementRate":"100%"}
-]
-}
-]
+{"songName":"name","songWriter":"writer","chartMaker":"maker","bpm":"120"}
+{"easy":"5","normal":"7","hard":"10"}
+{"songName":"name2","songWriter":"writer2","chartMaker":"maker2","bpm":"120"}
+{"easy":"4","normal":"6","hard":"8"}
+{"songName":"name3","songWriter":"writer3","chartMaker":"maker3","bpm":"120"}
+{"easy":"3","normal":"4","hard":"5"}
+{"songName":"name4","songWriter":"writer4","chartMaker":"maker4","bpm":"120"}
+{"easy":"5","normal":"6","hard":"7"}
