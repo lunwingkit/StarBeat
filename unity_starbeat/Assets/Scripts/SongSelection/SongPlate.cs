@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class SongPlate : MonoBehaviour {
     public GameObject songPlate;
-    public AudioSource audioData;
+    //public AudioSource audioData;
+    
+    public Song song;
+
 
     public void start()
     {
-        audioData = songPlate.GetComponent<AudioSource>();
+        songPlate = this.gameObject;
+        //audioData = songPlate.GetComponent<AudioSource>();
+        
+        //audioClip = (AudioClip)Resources.Load("002");
     }
     public void onClick()
     {

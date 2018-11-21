@@ -16,13 +16,22 @@ public class SongPlateManager : MonoBehaviour {
     public static int x = 0;
     List<GameObject> songPlateList;
     float differencePositionX;
+    
+    public Song selectedSong;
 
-    public GameObject selectedSongPlate;
 
+    void Awake()
+    {
 
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
 	// Use this for initialization
 	void Start () {
-        instance = this;
         parent = GameObject.Find("SongPlateContainer");
         songPlateList = new List<GameObject>();
 
@@ -91,6 +100,7 @@ public class SongPlateManager : MonoBehaviour {
         x++;
         plate.transform.localRotation = sample.transform.localRotation;
         plate.transform.localScale = sample.transform.localScale;
+        plate.GetComponent<SongPlate>().song = song;
         return plate;
     }
 
@@ -116,8 +126,9 @@ public class SongPlateManager : MonoBehaviour {
             count++;
         }
 
-        selectedSongPlate = songPlate;
+        selectedSong = songPlate.GetComponent<SongPlate>().song;
 
+        print(selectedSong.audioDataPath);
         //show level
         //show achievement
     }

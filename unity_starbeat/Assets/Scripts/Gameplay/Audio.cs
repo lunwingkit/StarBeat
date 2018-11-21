@@ -12,6 +12,10 @@ public class Audio : MonoBehaviour {
     void Start () {
         instance = this;
         audioData = GetComponent<AudioSource>();
+
+        AudioClip clip = (AudioClip)Resources.Load(SongPlateManager.instance.selectedSong.audioDataPath);
+        //AudioClip clip = (AudioClip)Resources.Load("002");
+        this.setAudioClip(clip);
     }
 
     // Update is called once per frame
@@ -22,5 +26,10 @@ public class Audio : MonoBehaviour {
         {
             audioData.Play(0);
         }
+    }
+
+    public void setAudioClip(AudioClip clip)
+    {
+        this.audioData.clip = clip;
     }
 }
