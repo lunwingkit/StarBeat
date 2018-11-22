@@ -53,55 +53,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\LeapMotion\Core\Editor\CorePreferences.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Editor\CustomEditorBase.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Editor\CustomPropertyDrawerBase.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Editor\EmptyFolderUtility.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Editor\LeapImageRetrieverEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Editor\LeapServiceProviderEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Editor\LeapXRServiceProviderEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Editor\Tests\FrameValidator.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Editor\Tests\FromThenTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Editor\Tests\HandFactoryTest.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Editor\Tests\TransformCopyTest.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Plugins\LeapCSharp\Editor\Tests\CircularObjectBufferTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Plugins\LeapCSharp\Editor\Tests\DeviceTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Plugins\LeapCSharp\Editor\Tests\LeapCStressTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Plugins\LeapCSharp\Editor\Tests\LeapCTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Plugins\LeapCSharp\Editor\Tests\ObjectEquality.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Plugins\LeapCSharp\Editor\Tests\StructMarshalTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Plugins\LeapCSharp\Editor\Tests\VectorTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Algorithms\Editor\Tests\SlidingMaxTest.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Animation\Editor\TransformTweenBehaviourEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Animation\Tween\Editor\Tests\TweenTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Attachments\Editor\AttachmentHandsEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Attributes\Editor\CombinablePropertyDrawer.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\DataStructures\Editor\AssetFolderPropertyDrawer.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\DataStructures\Editor\SerializableDictionaryEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\DataStructures\Editor\SerializableHashSetEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\DataStructures\Editor\StreamingAssetPropertyDrawer.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\DataStructures\Editor\StreamingFolderPropertyDrawer.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\DataStructures\Editor\Tests\DequeTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\DataStructures\Editor\Tests\MinHeapTest.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\DataStructures\Editor\Tests\MultiTypedListTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\DataStructures\Editor\Tests\MultiTypedReferenceTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\DataStructures\Editor\Tests\ProduceConsumeBufferTest.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\EditorTools\Editor\LeapRigUpgrader.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\EditorTools\Editor\LeapUnityWindow.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Encoding\Editor\VectorHandTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Query\Editor\QueryTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\Editor\BitConverterNonAllocTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\Editor\CommentEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\Editor\EditorUtils.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\Editor\EnumEventTableEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\Editor\Hotkeys.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\Editor\ListAndArrayExtensionTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\Editor\PostProcessProviderEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\Editor\SingleLayerEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\Editor\TransformUtilTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\Utils\Editor\UtilsTests.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\XR\Editor\LeapEyeDislocatorEditor.cs" />
-     <Compile Include="Assets\LeapMotion\Core\Scripts\XR\Editor\XRHeightOffsetEditor.cs" />
+     <Compile Include="Assets\LeapMotion\Editor\HandControllerEditor.cs" />
+     <Compile Include="Assets\LeapMotion\Editor\LeapImageRetrieverEditor.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRBuild.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRGameView.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRPrefabs.cs" />
+     <Compile Include="Assets\OVR\Editor\OVRShimLoader.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/HP-USER/Documents/GitHub/StarBeat/unity_starbeat/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
@@ -368,6 +325,9 @@
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/HP-USER/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="LeapCSharp.NET3.5">
+ <HintPath>C:/Users/HP-USER/Documents/GitHub/StarBeat/unity_starbeat/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>

@@ -12,7 +12,6 @@ public class PerformanceRecorder : MonoBehaviour {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance);
         }
         else if(instance != this)
         {
