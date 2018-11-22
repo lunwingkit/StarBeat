@@ -11,7 +11,7 @@ public class ChartManager : MonoBehaviour {
     {
         instance = this;
 
-        //fileName = SongPlateManager.instance.selectedSong.getChartDataPath(SongPlateManager.instance.selectedDifficulty);
+        fileName = SongPlateManager.instance.selectedSong.getChartDataPath(SongPlateManager.instance.selectedDifficulty);
         print(fileName);
         
 

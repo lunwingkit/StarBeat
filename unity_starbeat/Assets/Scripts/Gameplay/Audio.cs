@@ -18,18 +18,19 @@ public class Audio : MonoBehaviour {
         clip = (AudioClip)Resources.Load(SongPlateManager.instance.selectedSong.audioDataPath);
         //AudioClip clip = (AudioClip)Resources.Load("002");
         this.setAudioClip(clip);
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        if (!isPaused && !audioData.isPlaying && Time.time >= time)
+        // && Time.time >= time
+        if (!isPaused && !audioData.isPlaying && Time.timeSinceLevelLoad >= 3) 
         {
             audioData.Play(0);
         }
-
-
 
         //print("TIME:" + audioData.time);
         //print(clip.length);
@@ -42,7 +43,7 @@ public class Audio : MonoBehaviour {
         if(audioData.time == 0)
         {
             count++;
-            print("reach start/end");
+            //print("reach start/end");
         }
 
         if(count >= 2)

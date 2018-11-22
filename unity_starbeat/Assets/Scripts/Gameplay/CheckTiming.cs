@@ -17,8 +17,6 @@ public class CheckTiming : MonoBehaviour {
     public GameObject tapPosition;
     const string nodeName = "Node(Clone)";
 
-    public const float latency = 2.42f;
-
     public Dictionary<string, List<GameObject>> timing = new Dictionary<string, List<GameObject>>
     {
         {"Flawless", new List<GameObject>() },
@@ -163,7 +161,7 @@ public class CheckTiming : MonoBehaviour {
         if (other.gameObject.name == nodeName)
         {
             exitTime = Time.time;
-            print((enterTime + exitTime) / 2);
+            //print((enterTime + exitTime) / 2);
         }
     }
 }

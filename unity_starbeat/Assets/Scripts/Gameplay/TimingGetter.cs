@@ -18,7 +18,7 @@ public class TimingGetter : MonoBehaviour {
     {
         if(other.gameObject.name == nodeName)
         {
-            print(this.gameObject.name + "enter");
+            //print(this.gameObject.name + "enter");
             checkTiming.addNode(this.gameObject.name, other.gameObject);
         }
     }
@@ -26,7 +26,7 @@ public class TimingGetter : MonoBehaviour {
     {
         if(other.gameObject.name == nodeName)
         {
-            print(this.gameObject.name + "exit");
+            //print(this.gameObject.name + "exit");
             checkTiming.removeNode(this.gameObject.name, other.gameObject);
         }
     }
