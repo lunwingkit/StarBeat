@@ -22,6 +22,7 @@ public class NodeCreator : MonoBehaviour {
 
         try
         {
+            print("trying to read..." + fileName);
             MAP = csvReader.readCSV(@fileName);
         }
         catch (System.NullReferenceException e)

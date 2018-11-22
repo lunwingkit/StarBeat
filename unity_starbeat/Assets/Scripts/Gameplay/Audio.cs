@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Audio : MonoBehaviour {
     public static Audio instance;
     public AudioSource audioData;
     public float time;
     public static bool isPaused = false;
+    AudioClip clip;
 
     // Use this for initialization
     void Start () {
         instance = this;
         audioData = GetComponent<AudioSource>();
 
-        AudioClip clip = (AudioClip)Resources.Load(SongPlateManager.instance.selectedSong.audioDataPath);
+        clip = (AudioClip)Resources.Load(SongPlateManager.instance.selectedSong.audioDataPath);
         //AudioClip clip = (AudioClip)Resources.Load("002");
         this.setAudioClip(clip);
     }
@@ -26,6 +28,22 @@ public class Audio : MonoBehaviour {
         {
             audioData.Play(0);
         }
+
+
+
+        //print("TIME:" + audioData.time);
+        //print(clip.length);
+
+        float endTime = 10;
+        //endTime = clip.length;
+
+        print(audioData.time);
+        if(audioData.time >= endTime)
+        {
+            print("end");
+            SceneManager.LoadScene("ResultReview");
+        }
+
     }
 
     public void setAudioClip(AudioClip clip)

@@ -1068,6 +1068,7 @@ GameObject:
   - component: {fileID: 604804030}
   - component: {fileID: 604804029}
   - component: {fileID: 604804028}
+  - component: {fileID: 604804031}
   m_Layer: 5
   m_Name: ButtonEasy
   m_TagString: Untagged
@@ -1115,7 +1116,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.74112487, g: 1, b: 0.4669811, a: 1}
     m_HighlightedColor: {r: 0.63794553, g: 1, b: 0.25943398, a: 1}
-    m_PressedColor: {r: 0.5872118, g: 1, b: 0.15566039, a: 1}
+    m_PressedColor: {r: 0.36821377, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1132,7 +1133,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 604804029}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 604804031}
+        m_MethodName: onClickEasy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &604804029
@@ -1169,6 +1181,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 604804026}
   m_CullTransparentMesh: 0
+--- !u!114 &604804031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 604804026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2412c29798be2aa4fada7e21463b8743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &636892784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,7 +1780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1766,10 +1789,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1832,7 +1855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1841,10 +1864,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -2086,7 +2109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songPlate: {fileID: 0}
-  audioData: {fileID: 0}
 --- !u!82 &938998244
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2265,6 +2287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sample: {fileID: 1925363440108118, guid: 0a9f9776313962440b792a70daf16375, type: 2}
   parent: {fileID: 939530972}
+  selectedDifficulty: 0
 --- !u!224 &953502269 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224272110060535870, guid: 0a9f9776313962440b792a70daf16375,
@@ -2358,7 +2381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songPlate: {fileID: 1065797468}
-  audioData: {fileID: 1065797474}
 --- !u!114 &1065797473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2553,7 +2575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2562,10 +2584,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3216,6 +3238,7 @@ GameObject:
   - component: {fileID: 1386657334}
   - component: {fileID: 1386657333}
   - component: {fileID: 1386657332}
+  - component: {fileID: 1386657335}
   m_Layer: 5
   m_Name: ButtonNormal
   m_TagString: Untagged
@@ -3263,7 +3286,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 0.9869514, b: 0.5518868, a: 1}
     m_HighlightedColor: {r: 1, g: 0.98224926, b: 0.3254717, a: 1}
-    m_PressedColor: {r: 1, g: 0.977284, b: 0.13679248, a: 1}
+    m_PressedColor: {r: 0.9553981, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3280,7 +3303,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1386657333}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1386657335}
+        m_MethodName: onClickNormal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1386657333
@@ -3317,6 +3351,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1386657330}
   m_CullTransparentMesh: 0
+--- !u!114 &1386657335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1386657330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2412c29798be2aa4fada7e21463b8743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1391029852
 GameObject:
   m_ObjectHideFlags: 0
@@ -4352,6 +4397,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1737890212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1737890214}
+  - component: {fileID: 1737890213}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1737890213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1737890212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a1d4cf0157f3946aa349ac6dbe1169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1737890214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1737890212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 50.333336, y: 42.548447, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1740022268
 GameObject:
   m_ObjectHideFlags: 0
@@ -4693,7 +4778,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songPlate: {fileID: 1792362152}
-  audioData: {fileID: 1792362158}
 --- !u!114 &1792362157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5148,6 +5232,7 @@ GameObject:
   - component: {fileID: 1933205831}
   - component: {fileID: 1933205830}
   - component: {fileID: 1933205829}
+  - component: {fileID: 1933205832}
   m_Layer: 5
   m_Name: ButtonHard
   m_TagString: Untagged
@@ -5195,7 +5280,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 0.48584908, b: 0.48584908, a: 1}
     m_HighlightedColor: {r: 1, g: 0.33490568, b: 0.33490568, a: 1}
-    m_PressedColor: {r: 1, g: 0.042452812, b: 0.042452812, a: 1}
+    m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5212,7 +5297,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1933205830}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1933205832}
+        m_MethodName: onClickHard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1933205830
@@ -5249,6 +5345,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1933205827}
   m_CullTransparentMesh: 0
+--- !u!114 &1933205832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1933205827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2412c29798be2aa4fada7e21463b8743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2045632269
 GameObject:
   m_ObjectHideFlags: 0

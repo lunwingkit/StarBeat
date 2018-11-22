@@ -48,6 +48,9 @@ public class CheckTiming : MonoBehaviour {
                 destroyNode("Flawless");
                 tapFeedback.Tap(new Color(1, 0.92f, 0.016f, 0.4f));
                 judgmentFeedback.addFeedback("FLAWLESS");
+
+                updatePerformanceRecord("Flawless");
+                
             }
             else if (timing["Great"].Count > 0)
             {
@@ -55,6 +58,8 @@ public class CheckTiming : MonoBehaviour {
                 destroyNode("Great");
                 tapFeedback.Tap(new Color(1, 0, 0, 0.4f));
                 judgmentFeedback.addFeedback("GREAT");
+
+                updatePerformanceRecord("Great");
             }
             else if (timing["Good"].Count > 0)
             {
@@ -62,6 +67,8 @@ public class CheckTiming : MonoBehaviour {
                 destroyNode("Good");
                 tapFeedback.Tap(new Color(0, 1, 0, 0.4f));
                 judgmentFeedback.addFeedback("GOOD");
+
+                updatePerformanceRecord("Good");
             }
             else
                 tapFeedback.Tap();
@@ -71,7 +78,11 @@ public class CheckTiming : MonoBehaviour {
             mCount++;
             destroyNode("Miss");
             judgmentFeedback.addFeedback("MISS");
+
+            updatePerformanceRecord("Miss");
         }
+
+
     }
 
     public void addNode(string judgment, GameObject gameObject)
@@ -108,5 +119,25 @@ public class CheckTiming : MonoBehaviour {
             timing["Miss"].Remove(obj);
         }
         catch(System.NullReferenceException e) { }
+    }
+
+    public void updatePerformanceRecord(string accuracy)
+    {
+        switch (accuracy)
+        {
+            case "Flawless":
+                PerformanceRecorder.instance.newRecord.flawlessCount++;
+                break;
+            case "Great":
+                PerformanceRecorder.instance.newRecord.greatCount++;
+                break;
+            case "Good":
+                PerformanceRecorder.instance.newRecord.goodCount++;
+                break;
+            case "Miss":
+                PerformanceRecorder.instance.newRecord.missCount++;
+                break;
+        }
+
     }
 }

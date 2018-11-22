@@ -18,6 +18,12 @@ public class SongPlateManager : MonoBehaviour {
     float differencePositionX;
     
     public Song selectedSong;
+    public Difficulty selectedDifficulty = Difficulty.HARD;
+
+    List<Button> difficultyButtonList = new List<Button>();
+    Button easy;
+    Button normal;
+    Button hard;
 
 
     void Awake()
@@ -35,6 +41,16 @@ public class SongPlateManager : MonoBehaviour {
         parent = GameObject.Find("SongPlateContainer");
         songPlateList = new List<GameObject>();
 
+
+
+
+        easy = GameObject.Find("ButtonEasy").GetComponent<Button>();
+        normal = GameObject.Find("ButtonNormal").GetComponent<Button>();
+        hard = GameObject.Find("ButtonHard").GetComponent<Button>();
+        difficultyButtonList.Add(easy);
+        difficultyButtonList.Add(normal);
+        difficultyButtonList.Add(hard);
+
         //Find position From localPosition
         Vector2 v1 = transform.TransformPoint(new Vector2(sample.transform.localPosition.x + 0, sample.transform.localPosition.y));
         Vector2 v2 = transform.TransformPoint(new Vector2(sample.transform.localPosition.x + 200, sample.transform.localPosition.y));
@@ -42,6 +58,9 @@ public class SongPlateManager : MonoBehaviour {
 
         string filePath = Application.dataPath + "/songPlateInfo.txt";
         readJson(filePath);
+
+        select(songPlateList[0]);
+        select(selectedDifficulty);
     }
 
     public void readJson(string filePath)
@@ -131,8 +150,51 @@ public class SongPlateManager : MonoBehaviour {
         print(selectedSong.audioDataPath);
         //show level
         //show achievement
+
+        updateDifficultyButtons();
+    }
+
+    public void select(Difficulty difficulty)
+    {
+        selectedDifficulty = difficulty;
+
+
+        Button selected = null;
+        switch (difficulty)
+        {
+            case Difficulty.EASY:
+                selected = easy;
+                break;
+            case Difficulty.NORMAL:
+                selected = normal;
+                break;
+            case Difficulty.HARD:
+                selected = hard;
+                break;
+        }
+
+        foreach(Button b in difficultyButtonList)
+        {
+            if (b == selected)
+                b.image.color = b.colors.pressedColor;
+            else
+                b.image.color = new Color(255, 255, 255);
+        }
+        print(selectedDifficulty);
+    }
+
+    public void updateDifficultyButtons()
+    {
+        GameObject easy = GameObject.Find("ButtonEasy");
+        GameObject normal = GameObject.Find("ButtonNormal");
+        GameObject hard = GameObject.Find("ButtonHard");
+
+        easy.transform.Find("Text").GetComponent<Text>().text = selectedSong.chartDataList[0].difficulty + " " + selectedSong.chartDataList[0].level;
+        normal.transform.Find("Text").GetComponent<Text>().text = selectedSong.chartDataList[1].difficulty + " " + selectedSong.chartDataList[1].level;
+        hard.transform.Find("Text").GetComponent<Text>().text = selectedSong.chartDataList[2].difficulty + " " + selectedSong.chartDataList[2].level;
     }
 }
+
 
 
 public class Song
@@ -146,6 +208,16 @@ public class Song
     public override string ToString()
     {
         return songName + " " + songWriter + " " + bpm + " " + audioDataPath;
+    }
+
+    public string getChartDataPath(Difficulty difficulty)
+    {
+        foreach(Chart c in chartDataList)
+        {
+            if (c.difficulty == difficulty)
+                return c.chartDataPath;
+        }
+        return "";
     }
 }
 
@@ -161,6 +233,8 @@ public class Chart
         return difficulty.ToString() + " " + level + " " + chartMaker + " " + chartDataPath;
     }
 
+    
+
 }
 public enum Difficulty
 {
@@ -169,15 +243,23 @@ public enum Difficulty
     HARD
 }
 
-public class PlayRecord
+public class Stringify
 {
-    public Song song;
-    public Difficulty difficulty;
-    public int score;
-    public float achievment;
-    public int combo;
+    public static Stringify instance = new Stringify();
+    public string stringify(Difficulty difficulty)
+    {
+        switch (difficulty)
+        {
+            case Difficulty.EASY:
+                return "EASY";
+            case Difficulty.NORMAL:
+                return "NORMAL";
+            case Difficulty.HARD:
+                return "HARD";
+        }
+        return "";
+    }
 }
-
 
 /*
             Song loadData = JsonUtility.FromJson<Song>(dataAsJson);

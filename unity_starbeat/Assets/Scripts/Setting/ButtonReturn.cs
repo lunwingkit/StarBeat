@@ -8,6 +8,6 @@ public class ButtonReturn : MonoBehaviour {
     public void LoacScene()
     {
         SceneManager.LoadScene(scene);
-        GameplayController.instance.gameObject.SetActive(true);
+        //GameplayController.instance.gameObject.SetActive(true);
     }
 }
