@@ -14,6 +14,11 @@ public class CheckTiming : MonoBehaviour {
 
     public FeedbackDisplay feedbackDisplay;
 
+    public GameObject tapPosition;
+    const string nodeName = "Node(Clone)";
+
+    public const float latency = 2.42f;
+
     public Dictionary<string, List<GameObject>> timing = new Dictionary<string, List<GameObject>>
     {
         {"Flawless", new List<GameObject>() },
@@ -29,6 +34,8 @@ public class CheckTiming : MonoBehaviour {
         tapFeedback = GameObject.Find(nodeParent.name + "/TapFeedback").GetComponent<TapFeedback>();
         judgmentFeedback = GameObject.Find(nodeParent.name + "/JudgmentFeedback").GetComponent<JudgmentFeedback>();
         selector = nodeParent.name.Replace("NodeLine", "");
+
+        tapPosition = gameObject;
     }
 
 	// Use this for initialization
@@ -139,5 +146,24 @@ public class CheckTiming : MonoBehaviour {
                 break;
         }
 
+    }
+
+    float enterTime;
+    float exitTime;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == nodeName)
+        {
+            enterTime = Time.time;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == nodeName)
+        {
+            exitTime = Time.time;
+            print((enterTime + exitTime) / 2);
+        }
     }
 }

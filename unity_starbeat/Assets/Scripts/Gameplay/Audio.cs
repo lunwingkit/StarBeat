@@ -34,15 +34,22 @@ public class Audio : MonoBehaviour {
         //print("TIME:" + audioData.time);
         //print(clip.length);
 
-        float endTime = 10;
         //endTime = clip.length;
 
-        print(audioData.time);
-        if(audioData.time >= endTime)
+        print("Time:" + Time.time + "AudioTime:" + audioData.time);
+
+        int count = 0;
+        if(audioData.time == 0)
+        {
+            count++;
+            print("reach start/end");
+        }
+
+        if(count >= 2)
         {
             print("end");
-            SceneManager.LoadScene("ResultReview");
         }
+
 
     }
 

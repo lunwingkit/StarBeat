@@ -109,12 +109,14 @@ public class SongPlateManager : MonoBehaviour {
 
     public GameObject createSongPlate(Song song)
     {
-        
+        Texture2D albumjacket = Resources.Load<Texture2D>(song.audioDataPath);
+
         var plate = (GameObject)Instantiate(sample, parent.transform);
         plate.transform.Find("TextSongName").GetComponent<Text>().text = song.songName;
         plate.transform.Find("TextSongWriter").GetComponent<Text>().text = song.songWriter;
         plate.transform.Find("TextAchievementRate").GetComponent<Text>().text = "100%";
         plate.transform.Find("TextBPM").GetComponent<Text>().text = song.bpm;
+        plate.transform.Find("ImageAlbumJacket").GetComponent<RawImage>().texture = albumjacket;
         plate.transform.localPosition = new Vector2(sample.transform.localPosition.x + x*200, sample.transform.localPosition.y);
         x++;
         plate.transform.localRotation = sample.transform.localRotation;

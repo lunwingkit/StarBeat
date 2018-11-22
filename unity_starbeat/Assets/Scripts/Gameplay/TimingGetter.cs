@@ -18,16 +18,16 @@ public class TimingGetter : MonoBehaviour {
     {
         if(other.gameObject.name == nodeName)
         {
-            checkTiming.addNode(this.gameObject.name, other.gameObject);
             print(this.gameObject.name + "enter");
+            checkTiming.addNode(this.gameObject.name, other.gameObject);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if(other.gameObject.name == nodeName)
         {
-            checkTiming.removeNode(this.gameObject.name, other.gameObject);
             print(this.gameObject.name + "exit");
+            checkTiming.removeNode(this.gameObject.name, other.gameObject);
         }
     }
 	

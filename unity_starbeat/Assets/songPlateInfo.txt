@@ -1,16 +1,16 @@
-{"songName":"name","songWriter":"writer","bpm":"120","audioDataPath":"001"}
-{"difficulty":"0","level":"5","chartMaker":"maker","chartDataPath":"text1"}
-{"difficulty":"1","level":"7","chartMaker":"maker","chartDataPath":"text1"}
-{"difficulty":"2","level":"10","chartMaker":"maker","chartDataPath":"text1"}
-{"songName":"name","songWriter":"writer","bpm":"120","audioDataPath":"002"}
-{"difficulty":"0","level":"4","chartMaker":"maker","chartDataPath":"text1"}
-{"difficulty":"1","level":"6","chartMaker":"maker","chartDataPath":"text1"}
-{"difficulty":"2","level":"8","chartMaker":"maker","chartDataPath":"text1"}
-{"songName":"name","songWriter":"writer","bpm":"120","audioDataPath":"001"}
-{"difficulty":"0","level":"2","chartMaker":"maker","chartDataPath":"text1"}
-{"difficulty":"1","level":"8","chartMaker":"maker","chartDataPath":"text1"}
-{"difficulty":"2","level":"10","chartMaker":"maker","chartDataPath":"text1"}
-{"songName":"name","songWriter":"writer","bpm":"120","audioDataPath":"002"}
-{"difficulty":"0","level":"10","chartMaker":"maker","chartDataPath":"text1"}
-{"difficulty":"1","level":"10","chartMaker":"maker","chartDataPath":"text1"}
-{"difficulty":"2","level":"10","chartMaker":"maker","chartDataPath":"text1"}
+{"songName":"Summer Festival","songWriter":"Jitterin' Jinn","bpm":"141","audioDataPath":"summer_fest"}
+{"difficulty":"0","level":"3","chartMaker":"Myslf","chartDataPath":"summer_fest-e"}
+{"difficulty":"1","level":"5","chartMaker":"Myself","chartDataPath":"summer_fest-n"}
+{"difficulty":"2","level":"7","chartMaker":"Myself","chartDataPath":"summer_fest-h"}
+{"songName":"larva","songWriter":"Garigari Samushi","bpm":"202","audioDataPath":"larva"}
+{"difficulty":"0","level":"5","chartMaker":"Myself","chartDataPath":"larva-e"}
+{"difficulty":"1","level":"8","chartMaker":"Myself","chartDataPath":"larva-n"}
+{"difficulty":"2","level":"10","chartMaker":"Myself","chartDataPath":"larva-h"}
+{"songName":"xevel","songWriter":"Tatsh","bpm":"176","audioDataPath":"xevel"}
+{"difficulty":"0","level":"4","chartMaker":"Myself","chartDataPath":"xevel-e"}
+{"difficulty":"1","level":"7","chartMaker":"Myself","chartDataPath":"xevel-n"}
+{"difficulty":"2","level":"9","chartMaker":"maker","chartDataPath":"xevel-h"}
+{"songName":"Science of Heart","songWriter":"Wyman Wong","bpm":"140","audioDataPath":"heart_science"}
+{"difficulty":"0","level":"3","chartMaker":"Myself","chartDataPath":"heart_science-e"}
+{"difficulty":"1","level":"5","chartMaker":"Myself","chartDataPath":"heart_science-n"}
+{"difficulty":"2","level":"8","chartMaker":"Myself","chartDataPath":"heart_science-h"}
