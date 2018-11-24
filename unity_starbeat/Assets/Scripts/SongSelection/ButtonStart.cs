@@ -12,4 +12,9 @@ public class ButtonStart : MonoBehaviour {
         else
             SceneManager.LoadScene("Gameplay");
     }
+
+    public void update()
+    {
+        print(gameObject.name + gameObject.transform.position);
+    }
 }
