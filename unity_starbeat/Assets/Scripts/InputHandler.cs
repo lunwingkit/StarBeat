@@ -22,6 +22,7 @@ public class InputHandler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
         if (instance == null)
         {
             instance = this;
@@ -85,10 +86,16 @@ public class InputHandler : MonoBehaviour
         //controller.Dispose();
     }
 
-
+    public bool isOnPress()
+    {
+        return true;
+        //return instance.listener.getIsPressed();
+    }
 
     class ControllerListener
     {
+        bool isPressed = false;
+
         public void OnServiceConnect(object sender, ConnectionEventArgs args)
         {
             print("Service Connected");
@@ -126,7 +133,10 @@ public class InputHandler : MonoBehaviour
                         if (finger.TipPosition.z < -50)
                         {
                             print("press");
+                            isPressed = true;
                         }
+                        else
+                            isPressed = false;
                     }
 
                 }
@@ -135,6 +145,11 @@ public class InputHandler : MonoBehaviour
 
             }
             //foreach (Tool )
+        }
+
+        public bool getIsPressed()
+        {
+            return isPressed;
         }
     }
 

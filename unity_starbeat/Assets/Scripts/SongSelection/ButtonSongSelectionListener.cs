@@ -32,12 +32,20 @@ public class ButtonSongSelectionListener : MonoBehaviour {
             // " test2:" + RectTransformUtility.PixelAdjustPoint(button.GetComponent<RectTransform>().sizeDelta, button.GetComponent<Transform>(), button.GetComponent<Canvas>()) +
             " test3:" + RectTransformToScreenSpace(button.GetComponent<RectTransform>());
 
-        if(InputHandler.instance.image.transform.position.x >= RectTransformToScreenSpace(button.GetComponent<RectTransform>()).x &&
+        if (InputHandler.instance.image.transform.position.x >= RectTransformToScreenSpace(button.GetComponent<RectTransform>()).x &&
             InputHandler.instance.image.transform.position.x <= RectTransformToScreenSpace(button.GetComponent<RectTransform>()).x + RectTransformToScreenSpace(button.GetComponent<RectTransform>()).width &&
             InputHandler.instance.image.transform.position.y >= RectTransformToScreenSpace(button.GetComponent<RectTransform>()).y &&
             InputHandler.instance.image.transform.position.y <= RectTransformToScreenSpace(button.GetComponent<RectTransform>()).y + RectTransformToScreenSpace(button.GetComponent<RectTransform>()).height)
         {
             print("inside");
+            button.GetComponent<Button>().Select();
+            if (InputHandler.instance.isOnPress())
+                button.GetComponent<Button>().onClick.Invoke();
+        }
+        else
+        {
+            GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+
         }
 
 
