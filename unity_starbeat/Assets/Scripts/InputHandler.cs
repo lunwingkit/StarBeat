@@ -11,6 +11,7 @@ public class InputHandler : MonoBehaviour
     Controller controller;
     public GameObject image;
 
+    public bool onClick = false;
 
     public static float pox;
     public static float poy;
@@ -88,7 +89,7 @@ public class InputHandler : MonoBehaviour
 
     public bool isOnPress()
     {
-        return true;
+        return this.listener.getIsPressed();
         //return instance.listener.getIsPressed();
     }
 
@@ -133,10 +134,10 @@ public class InputHandler : MonoBehaviour
                         if (finger.TipPosition.z < -50)
                         {
                             print("press");
-                            isPressed = true;
+                            InputHandler.instance.onClick = true;
                         }
                         else
-                            isPressed = false;
+                            InputHandler.instance.onClick = false;
                     }
 
                 }
@@ -145,11 +146,6 @@ public class InputHandler : MonoBehaviour
 
             }
             //foreach (Tool )
-        }
-
-        public bool getIsPressed()
-        {
-            return isPressed;
         }
     }
 

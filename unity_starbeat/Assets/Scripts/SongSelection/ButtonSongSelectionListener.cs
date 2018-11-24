@@ -39,7 +39,7 @@ public class ButtonSongSelectionListener : MonoBehaviour {
         {
             print("inside");
             button.GetComponent<Button>().Select();
-            if (InputHandler.instance.isOnPress())
+            if (InputHandler.instance.onClick)
                 button.GetComponent<Button>().onClick.Invoke();
         }
         else
