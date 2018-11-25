@@ -6,7 +6,8 @@ public class PerformanceRecorder : MonoBehaviour {
     public static PerformanceRecorder instance;
 
     public PlayRecord newRecord;
-
+    //public Song song;
+    //public Difficulty difficulty;
 	// Use this for initialization
 	void Start () {
         if (instance == null)
@@ -18,11 +19,15 @@ public class PerformanceRecorder : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        newRecord = new PlayRecord(SongPlateManager.instance.selectedSong, SongPlateManager.instance.selectedDifficulty);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        if(SongPlateManager.instance != null)
+            newRecord = new PlayRecord(SongPlateManager.instance.selectedSong, SongPlateManager.instance.selectedDifficulty);
+        else
+            newRecord = new PlayRecord(new Song(), Difficulty.HARD);
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         //IF(completed)
         //THEN GO TO RESULT

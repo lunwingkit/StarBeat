@@ -15,7 +15,10 @@ public class Audio : MonoBehaviour {
         instance = this;
         audioData = GetComponent<AudioSource>();
 
-        clip = (AudioClip)Resources.Load(SongPlateManager.instance.selectedSong.audioDataPath);
+        if (SongPlateManager.instance != null)
+            clip = (AudioClip)Resources.Load(SongPlateManager.instance.selectedSong.audioDataPath);
+        else
+            clip = (AudioClip)Resources.Load("summer_fest");
         //AudioClip clip = (AudioClip)Resources.Load("002");
         this.setAudioClip(clip);
 
@@ -37,7 +40,7 @@ public class Audio : MonoBehaviour {
 
         //endTime = clip.length;
 
-        print("Time:" + Time.time + "AudioTime:" + audioData.time);
+        //print("Time:" + Time.time + "AudioTime:" + audioData.time);
 
         int count = 0;
         if(audioData.time == 0)

@@ -15,14 +15,14 @@ public class NodeCreator : MonoBehaviour {
 
     private void Start()
     {
-        print("Creator Start");
+        //print("Creator Start");
         nodeParent = gameObject.transform.parent.gameObject;
         destination = GameObject.Find(nodeParent.name + "/DestroyPosition");
         selector = int.Parse(nodeParent.name.Replace("NodeLine", ""));
 
         try
         {
-            print("trying to read..." + fileName);
+            //print("trying to read..." + fileName);
             MAP = csvReader.readCSV(@fileName);
         }
         catch (System.NullReferenceException e)

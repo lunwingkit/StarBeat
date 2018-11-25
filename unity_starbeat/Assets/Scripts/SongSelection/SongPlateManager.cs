@@ -18,6 +18,7 @@ public class SongPlateManager : MonoBehaviour {
     float differencePositionX;
     
     public Song selectedSong;
+    public GameObject selectedSongPlate;
     public Difficulty selectedDifficulty = Difficulty.HARD;
 
     List<Button> difficultyButtonList = new List<Button>();
@@ -148,12 +149,18 @@ public class SongPlateManager : MonoBehaviour {
         }
 
         selectedSong = songPlate.GetComponent<SongPlate>().song;
-
+        selectedSongPlate = songPlate;
         print(selectedSong.audioDataPath);
         //show level
         //show achievement
 
         updateDifficultyButtons();
+    }
+
+    public void selectBySwiping(int direction)
+    {
+        if(songPlateList.IndexOf(selectedSongPlate) + direction >= 0 && songPlateList.IndexOf(selectedSongPlate) + direction < songPlateList.Count)
+            select(songPlateList[songPlateList.IndexOf(selectedSongPlate) + direction]);
     }
 
     public void select(Difficulty difficulty)

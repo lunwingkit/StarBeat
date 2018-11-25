@@ -46,37 +46,7 @@ public class CheckTiming : MonoBehaviour {
 
         if (Input.GetKeyDown(selector))
         {
-            
-            if (timing["Flawless"].Count > 0)
-            {
-                fCount++;
-                destroyNode("Flawless");
-                tapFeedback.Tap(new Color(1, 0.92f, 0.016f, 0.4f));
-                judgmentFeedback.addFeedback("FLAWLESS");
-
-                updatePerformanceRecord("Flawless");
-                
-            }
-            else if (timing["Great"].Count > 0)
-            {
-                grCount++;
-                destroyNode("Great");
-                tapFeedback.Tap(new Color(1, 0, 0, 0.4f));
-                judgmentFeedback.addFeedback("GREAT");
-
-                updatePerformanceRecord("Great");
-            }
-            else if (timing["Good"].Count > 0)
-            {
-                gCount++;
-                destroyNode("Good");
-                tapFeedback.Tap(new Color(0, 1, 0, 0.4f));
-                judgmentFeedback.addFeedback("GOOD");
-
-                updatePerformanceRecord("Good");
-            }
-            else
-                tapFeedback.Tap();
+            invokeJudgment();
         }
         if (timing["Miss"].Count > 0)
         {
@@ -98,6 +68,40 @@ public class CheckTiming : MonoBehaviour {
     public void removeNode(string judgment, GameObject gameObject)
     {
         timing[judgment].Remove(gameObject);
+    }
+
+    public void invokeJudgment()
+    {
+        if (timing["Flawless"].Count > 0)
+        {
+            fCount++;
+            destroyNode("Flawless");
+            tapFeedback.Tap(new Color(1, 0.92f, 0.016f, 0.4f));
+            judgmentFeedback.addFeedback("FLAWLESS");
+
+            updatePerformanceRecord("Flawless");
+
+        }
+        else if (timing["Great"].Count > 0)
+        {
+            grCount++;
+            destroyNode("Great");
+            tapFeedback.Tap(new Color(1, 0, 0, 0.4f));
+            judgmentFeedback.addFeedback("GREAT");
+
+            updatePerformanceRecord("Great");
+        }
+        else if (timing["Good"].Count > 0)
+        {
+            gCount++;
+            destroyNode("Good");
+            tapFeedback.Tap(new Color(0, 1, 0, 0.4f));
+            judgmentFeedback.addFeedback("GOOD");
+
+            updatePerformanceRecord("Good");
+        }
+        else
+            tapFeedback.Tap();
     }
 
     int getKeyValue(string key)
