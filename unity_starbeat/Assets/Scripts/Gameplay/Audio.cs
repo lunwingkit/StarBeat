@@ -10,6 +10,11 @@ public class Audio : MonoBehaviour {
     public static bool isPaused = false;
     AudioClip clip;
 
+    public const int preLatency = 3;
+    public const int postLatency = 2;
+
+    public float length;
+
     // Use this for initialization
     void Start () {
         instance = this;
@@ -19,10 +24,11 @@ public class Audio : MonoBehaviour {
             clip = (AudioClip)Resources.Load(SongPlateManager.instance.selectedSong.audioDataPath);
         else
             clip = (AudioClip)Resources.Load("summer_fest");
-        //AudioClip clip = (AudioClip)Resources.Load("002");
         this.setAudioClip(clip);
 
-        
+        length = clip.length;
+
+        Invoke("LoadResultReview", preLatency + clip.length + postLatency);
     }
 
     // Update is called once per frame
@@ -30,7 +36,7 @@ public class Audio : MonoBehaviour {
     {
         
         // && Time.time >= time
-        if (!isPaused && !audioData.isPlaying && Time.timeSinceLevelLoad >= 3) 
+        if (!isPaused && !audioData.isPlaying && Time.timeSinceLevelLoad >= preLatency) 
         {
             audioData.Play(0);
         }
@@ -41,24 +47,15 @@ public class Audio : MonoBehaviour {
         //endTime = clip.length;
 
         //print("Time:" + Time.time + "AudioTime:" + audioData.time);
-
-        int count = 0;
-        if(audioData.time == 0)
-        {
-            count++;
-            //print("reach start/end");
-        }
-
-        if(count >= 2)
-        {
-            print("end");
-        }
-
-
     }
 
     public void setAudioClip(AudioClip clip)
     {
         this.audioData.clip = clip;
+    }
+
+    void LoadResultReview()
+    {
+        SceneManager.LoadScene("ResultReview");
     }
 }
