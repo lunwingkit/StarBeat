@@ -70,7 +70,8 @@ public class ButtonSongSelectionListener : MonoBehaviour {
 
         foreach(GameObject go in buttons)
         {
-            pointerClick(InputHandler.instance.image.transform.position, go);
+            if(InputHandler.instance.image.active)
+                pointerClick(InputHandler.instance.image.transform.position, go);
         }
         //pointerClick(InputHandler.instance.image.transform.position, button);
 

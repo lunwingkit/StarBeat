@@ -7,7 +7,7 @@ public class ButtonStart : MonoBehaviour {
 
     public void onClick()
     {
-        if (SongPlateManager.instance.selectedSong == null)
+        if (SongPlateManager.selectedSong == null)
             print("No song selected!");
         else
             SceneManager.LoadScene("Gameplay");

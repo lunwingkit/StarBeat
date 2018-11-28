@@ -12,7 +12,7 @@ public class ChartManager : MonoBehaviour {
         instance = this;
 
         if(SongPlateManager.instance != null)
-            fileName = SongPlateManager.instance.selectedSong.getChartDataPath(SongPlateManager.instance.selectedDifficulty);
+            fileName = SongPlateManager.selectedSong.getChartDataPath(SongPlateManager.selectedDifficulty);
         print(fileName);
         
 

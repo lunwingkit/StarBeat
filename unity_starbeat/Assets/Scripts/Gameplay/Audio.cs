@@ -21,7 +21,7 @@ public class Audio : MonoBehaviour {
         audioData = GetComponent<AudioSource>();
 
         if (SongPlateManager.instance != null)
-            clip = (AudioClip)Resources.Load(SongPlateManager.instance.selectedSong.audioDataPath);
+            clip = (AudioClip)Resources.Load(SongPlateManager.selectedSong.audioDataPath);
         else
             clip = (AudioClip)Resources.Load("summer_fest");
         this.setAudioClip(clip);

@@ -17,9 +17,9 @@ public class SongPlateManager : MonoBehaviour {
     List<GameObject> songPlateList;
     float differencePositionX;
     
-    public Song selectedSong;
-    public GameObject selectedSongPlate;
-    public Difficulty selectedDifficulty = Difficulty.HARD;
+    public static Song selectedSong;
+    public static GameObject selectedSongPlate;
+    public static Difficulty selectedDifficulty = Difficulty.HARD;
 
     List<Button> difficultyButtonList = new List<Button>();
     Button easy;
@@ -59,8 +59,8 @@ public class SongPlateManager : MonoBehaviour {
 
         string filePath = Application.dataPath + "/songPlateInfo.txt";
         readJson(filePath);
-
-        select(songPlateList[0]);
+        selectedSongPlate = songPlateList[0];
+        select(selectedSongPlate);
         select(selectedDifficulty);
     }
 

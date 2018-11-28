@@ -185,9 +185,9 @@
      <Compile Include="Assets\Scripts\SongSelection\ButtonSetting.cs" />
      <Compile Include="Assets\Scripts\SongSelection\ButtonSongSelectionListener.cs" />
      <Compile Include="Assets\Scripts\SongSelection\ButtonStart.cs" />
-     <Compile Include="Assets\Scripts\SongSelection\DictationRecognizer.cs" />
      <Compile Include="Assets\Scripts\SongSelection\SongPlate.cs" />
      <Compile Include="Assets\Scripts\SongSelection\SongPlateManager.cs" />
+     <Compile Include="Assets\Scripts\SongSelection\speechRecognizer.cs" />
      <Compile Include="Assets\Scripts\SongSelection\TitleBar.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
