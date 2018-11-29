@@ -11,11 +11,11 @@ public class AudioSoundEffect : MonoBehaviour {
 	void Start () {
         audioSource = GetComponent<AudioSource>();
         clips = new AudioClip[5];
-        clips[0] = (AudioClip)Resources.Load("pos0");
-        clips[1] = (AudioClip)Resources.Load("pos1");
-        clips[2] = (AudioClip)Resources.Load("pos2");
-        clips[3] = (AudioClip)Resources.Load("pos3");
-        clips[4] = (AudioClip)Resources.Load("pos4");
+        clips[0] = (AudioClip)Resources.Load("drum1");
+        clips[1] = (AudioClip)Resources.Load("drum2");
+        clips[2] = (AudioClip)Resources.Load("drum3");
+        clips[3] = (AudioClip)Resources.Load("drum4");
+        clips[4] = (AudioClip)Resources.Load("drum1");
     }
 	
 	// Update is called once per frame
