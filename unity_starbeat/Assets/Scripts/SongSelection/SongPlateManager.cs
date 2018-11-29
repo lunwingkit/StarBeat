@@ -15,6 +15,7 @@ public class SongPlateManager : MonoBehaviour {
     public GameObject parent;
     public static int x = 0;
     List<GameObject> songPlateList;
+    List<Song> songList;
     float differencePositionX;
     
     public static Song selectedSong;
@@ -41,7 +42,7 @@ public class SongPlateManager : MonoBehaviour {
 	void Start () {
         parent = GameObject.Find("SongPlateContainer");
         songPlateList = new List<GameObject>();
-
+        songList = new List<Song>();
 
 
 
@@ -71,7 +72,7 @@ public class SongPlateManager : MonoBehaviour {
             string dataAsJson = File.ReadAllText(filePath);
             using (System.IO.StringReader reader = new System.IO.StringReader(dataAsJson))
             {
-                List<Song> songList = new List<Song>();
+                
                 while (reader.Peek() != -1)
                 {
 
@@ -201,6 +202,37 @@ public class SongPlateManager : MonoBehaviour {
         easy.transform.Find("Text").GetComponent<Text>().text = selectedSong.chartDataList[0].difficulty + " " + selectedSong.chartDataList[0].level;
         normal.transform.Find("Text").GetComponent<Text>().text = selectedSong.chartDataList[1].difficulty + " " + selectedSong.chartDataList[1].level;
         hard.transform.Find("Text").GetComponent<Text>().text = selectedSong.chartDataList[2].difficulty + " " + selectedSong.chartDataList[2].level;
+    }
+	
+    public void searchSong(string keyword)
+    {
+        foreach(GameObject go in songPlateList)
+	{
+		Destroy(go);
+	}
+        songPlateList = new List<GameObject>();
+	    
+        foreach(Song song in songList)
+	{
+		if(song.songName.ToLower().Contains(keyword.ToLower())
+		{
+			songPlateList.Add(createSongPlate(song));
+		}
+	}
+    }
+		   
+    public void showAllSongs()
+    {
+	    foreach(GameObject go in songPlateList)
+	{
+		Destroy(go);
+	}
+        songPlateList = new List<GameObject>();
+	    //Destroy Gameobject
+        foreach(Song song in songList)
+	{
+		songPlateList.Add(createSongPlate(song));
+	}
     }
 }
 
