@@ -46,7 +46,7 @@ public class CheckTiming : MonoBehaviour {
 
         if (Input.GetKeyDown(selector))
         {
-            AudioSoundEffect.instance.onPress(selector);
+            AudioSoundEffect.instance.onPress(int.Parse(selector));
             invokeJudgment();
         }
         if (timing["Miss"].Count > 0)
