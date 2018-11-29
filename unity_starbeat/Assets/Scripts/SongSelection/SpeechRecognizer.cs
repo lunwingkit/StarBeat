@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 
-public class speechRecognizer : MonoBehaviour
+public class SpeechRecognizer : MonoBehaviour
 {
     [SerializeField]
     private Text m_Hypotheses;
@@ -15,7 +15,12 @@ public class speechRecognizer : MonoBehaviour
     public Button button;
     public GameObject input;
     public Text inputText;
-
+    
+    public GameObject icon;
+    Texture2D readyImage;
+    Texture2D loadingImage ;
+    Texture2D completedImage;
+    
     void Start()
     {
         m_DictationRecognizer = new DictationRecognizer();
@@ -24,6 +29,7 @@ public class speechRecognizer : MonoBehaviour
         {
             Debug.LogFormat("Dictation result: {0}", text);
             inputText.text = text;
+            icon.getComponent<RawImage>().textTure = completedImage;
             //add done icon
             //perform searching
 
@@ -46,10 +52,15 @@ public class speechRecognizer : MonoBehaviour
             Debug.LogErrorFormat("Dictation error: {0}; HResult = {1}.", error, hresult);
         };
 
+        readyImage = Resources.Load<Texture2D>("readyImage");
+        loadingImage = Resources.Load<Texture2D>("loadingImage");
+        completedImage = Resources.Load<Texture2D>("completedImage");
 
         button = GameObject.Find("ButtonSpeech").GetComponent<Button>();
         input = GameObject.Find("InputSongSearch");
         inputText = GameObject.Find("PlaceholderSongSearch").GetComponent<Text>();
+        icon = GameObject.Find("IconSpeech");
+        icon.getComponent<RawImage>().textTure = readyImage;
         button.onClick.AddListener(OnClick);
     }
 
@@ -61,6 +72,7 @@ public class speechRecognizer : MonoBehaviour
     void OnClick()
     {
         m_DictationRecognizer.Start();
+        icon.getComponent<RawImage>().textTure = loadingImage;
         //Add loading icon
     }
 }
