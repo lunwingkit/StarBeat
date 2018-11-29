@@ -30,6 +30,7 @@ public class SpeechRecognizer : MonoBehaviour
             Debug.LogFormat("Dictation result: {0}", text);
             inputText.text = text;
             icon.getComponent<RawImage>().textTure = completedImage;
+            m_DictationRecognizer.Stop();
             //add done icon
             //perform searching
 
