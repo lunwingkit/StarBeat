@@ -5,8 +5,8 @@ using UnityEngine;
 public class DrumInvoker : MonoBehaviour {
     public GameObject drum;
     public int selector;
-    public Material beforeHitMaterial;
-    public Material afterHitMaterial;
+    public Material beforeHitMaterial; //add ar
+    public Material afterHitMaterial; // add ar
     Renderer rend;
 	
 	// Use this for initialization
