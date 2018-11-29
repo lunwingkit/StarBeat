@@ -16,6 +16,8 @@ public class SpeechRecognizer : MonoBehaviour
     public GameObject input;
     public Text inputText;
     
+    public Button buttonTextSearch;
+    
     public GameObject icon;
     Texture2D readyImage;
     Texture2D loadingImage ;
@@ -53,16 +55,18 @@ public class SpeechRecognizer : MonoBehaviour
             Debug.LogErrorFormat("Dictation error: {0}; HResult = {1}.", error, hresult);
         };
 
-        readyImage = Resources.Load<Texture2D>("readyImage");
-        loadingImage = Resources.Load<Texture2D>("loadingImage");
-        completedImage = Resources.Load<Texture2D>("completedImage");
+        readyImage = Resources.Load<Texture2D>("readyImage"); //Create ar
+        loadingImage = Resources.Load<Texture2D>("loadingImage"); //Create ar
+        completedImage = Resources.Load<Texture2D>("completedImage"); //Create ar
 
         button = GameObject.Find("ButtonSpeech").GetComponent<Button>();
+        buttonTextSearch = HameObject.Find("ButtonTextSearch").GetComponent<Button>();
         input = GameObject.Find("InputSongSearch");
-        inputText = GameObject.Find("PlaceholderSongSearch").GetComponent<Text>();
-        icon = GameObject.Find("IconSpeech");
+        inputText = GameObject.Find("PlaceholderSongSearch").GetComponent<Text>(); //This inputText should not be placeholder
+        icon = GameObject.Find("IconSpeech"); //Create ar
         icon.getComponent<RawImage>().textTure = readyImage;
         button.onClick.AddListener(OnClick);
+        inputText.onValueChange.AddListener(delegate {ValueChangeCheck(); });
     }
 
     void update()
@@ -75,5 +79,18 @@ public class SpeechRecognizer : MonoBehaviour
         m_DictationRecognizer.Start();
         icon.getComponent<RawImage>().textTure = loadingImage;
         //Add loading icon
+    }
+    
+    public void ValueChangeCheck()
+    {
+        if(inputText.text == "")
+        {
+        //show all song
+            SongPlateManager.instance.showAllSongs();
+        }
+        else
+        {
+            SongPlateManager.instance.searchSong(inputText.text);
+        }
     }
 }
