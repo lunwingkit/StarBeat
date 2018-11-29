@@ -43,11 +43,6 @@ public class CheckTiming : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (Input.GetKeyDown(selector))
-        {
-            invokeJudgment();
-        }
         if (timing["Miss"].Count > 0)
         {
             mCount++;
