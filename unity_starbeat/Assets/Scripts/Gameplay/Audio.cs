@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,7 +21,7 @@ public class Audio : MonoBehaviour {
         instance = this;
         audioData = GetComponent<AudioSource>();
 
-        if (SongPlateManager.instance != null)
+        if (SongPlateManager.selectedSong != null)
             clip = (AudioClip)Resources.Load(SongPlateManager.selectedSong.audioDataPath);
         else
             clip = (AudioClip)Resources.Load("summer_fest");
@@ -29,6 +30,11 @@ public class Audio : MonoBehaviour {
         length = clip.length;
 
         Invoke("LoadResultReview", preLatency + clip.length + postLatency);
+    }
+
+    internal void onPress(int selector)
+    {
+        throw new NotImplementedException();
     }
 
     // Update is called once per frame

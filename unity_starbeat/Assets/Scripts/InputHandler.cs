@@ -51,7 +51,7 @@ public class InputHandler : MonoBehaviour
         }
         //V3
         image = GameObject.Find("Pointer");
-
+        image.SetActive(false);
 
         listener = new ControllerListener();
         controller = new Controller();

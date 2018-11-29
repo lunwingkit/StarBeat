@@ -1758,6 +1758,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drum: {fileID: 0}
   selector: 0
+  beforeHitMaterial: {fileID: 2100000, guid: 3528e119af41a574d93d0c4ecb926d70, type: 2}
+  afterHitMaterial: {fileID: 2100000, guid: 7084cf6884977df46a4adef796060a10, type: 2}
 --- !u!1 &305656482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,6 +2345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drum: {fileID: 0}
   selector: 0
+  beforeHitMaterial: {fileID: 2100000, guid: 3528e119af41a574d93d0c4ecb926d70, type: 2}
+  afterHitMaterial: {fileID: 2100000, guid: 7084cf6884977df46a4adef796060a10, type: 2}
 --- !u!1 &399586963
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,7 +2572,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 445648467}
   m_LocalRotation: {x: 0.0008979142, y: -0, z: -0, w: 0.99999964}
-  m_LocalPosition: {x: 0, y: -0.04, z: -0.04}
+  m_LocalPosition: {x: 0, y: -0.19, z: -0.04}
   m_LocalScale: {x: 1.025, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 906381659}
@@ -4378,6 +4382,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drum: {fileID: 0}
   selector: 0
+  beforeHitMaterial: {fileID: 2100000, guid: aaf494da8f58d4946949a7fa473065e2, type: 2}
+  afterHitMaterial: {fileID: 2100000, guid: ca76e04693cd6074ca593b07553325c7, type: 2}
 --- !u!1 &746822720
 GameObject:
   m_ObjectHideFlags: 0
@@ -4499,6 +4505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 749863311}
   - component: {fileID: 749863310}
+  - component: {fileID: 749863312}
   m_Layer: 0
   m_Name: AudioSoundEffect
   m_TagString: Untagged
@@ -4614,6 +4621,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &749863312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 749863309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca702056a2c311e49a27a47aa5966f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  clips: []
 --- !u!1 &760940572
 GameObject:
   m_ObjectHideFlags: 0
@@ -5323,6 +5343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drum: {fileID: 0}
   selector: 0
+  beforeHitMaterial: {fileID: 2100000, guid: aaf494da8f58d4946949a7fa473065e2, type: 2}
+  afterHitMaterial: {fileID: 2100000, guid: ca76e04693cd6074ca593b07553325c7, type: 2}
 --- !u!1 &906381655
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,6 +5446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drum: {fileID: 0}
   selector: 0
+  beforeHitMaterial: {fileID: 2100000, guid: 3528e119af41a574d93d0c4ecb926d70, type: 2}
+  afterHitMaterial: {fileID: 2100000, guid: 7084cf6884977df46a4adef796060a10, type: 2}
 --- !u!1 &916644318
 GameObject:
   m_ObjectHideFlags: 0
@@ -7256,7 +7280,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1363797913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.04, z: 0}
+  m_LocalPosition: {x: 0, y: -0.09, z: -0}
   m_LocalScale: {x: 1.025, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 280371019}

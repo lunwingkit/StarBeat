@@ -14,12 +14,12 @@ public class SpeechRecognizer : MonoBehaviour
     private DictationRecognizer m_DictationRecognizer;
     public Button button;
     public GameObject input;
-    public Text inputText;
+    public GameObject inputText;
     
     public Button buttonTextSearch;
     
     public GameObject icon;
-    Texture2D readyImage;
+    //Texture2D readyImage;
     Texture2D loadingImage ;
     Texture2D completedImage;
     
@@ -30,18 +30,23 @@ public class SpeechRecognizer : MonoBehaviour
         m_DictationRecognizer.DictationResult += (text, confidence) =>
         {
             Debug.LogFormat("Dictation result: {0}", text);
-            inputText.text = text;
-            icon.getComponent<RawImage>().textTure = completedImage;
+            inputText.GetComponent<InputField>().text = text;
+            icon.GetComponent<RawImage>().texture = completedImage;
             m_DictationRecognizer.Stop();
+            if (text.Equals("all"))
+                SongPlateManager.instance.showAllSongs();
+            else
+                SongPlateManager.instance.searchSong(text);
             //add done icon
             //perform searching
+
 
         };
 
         m_DictationRecognizer.DictationHypothesis += (text) =>
         {
             Debug.LogFormat("Dictation hypothesis: {0}", text);
-            inputText.text = text;
+            inputText.GetComponent<InputField>().text = text;
         };
 
         m_DictationRecognizer.DictationComplete += (completionCause) =>
@@ -55,18 +60,20 @@ public class SpeechRecognizer : MonoBehaviour
             Debug.LogErrorFormat("Dictation error: {0}; HResult = {1}.", error, hresult);
         };
 
-        readyImage = Resources.Load<Texture2D>("readyImage"); //Create ar
+        //readyImage = Resources.Load<Texture2D>("readyImage"); //Create ar
         loadingImage = Resources.Load<Texture2D>("loadingImage"); //Create ar
         completedImage = Resources.Load<Texture2D>("completedImage"); //Create ar
 
         button = GameObject.Find("ButtonSpeech").GetComponent<Button>();
-        buttonTextSearch = HameObject.Find("ButtonTextSearch").GetComponent<Button>();
+        //buttonTextSearch = GameObject.Find("ButtonTextSearch").GetComponent<Button>();
         input = GameObject.Find("InputSongSearch");
-        inputText = GameObject.Find("PlaceholderSongSearch").GetComponent<Text>(); //This inputText should not be placeholder
+        inputText = GameObject.Find("InputSongSearch"); //This inputText should not be placeholder
         icon = GameObject.Find("IconSpeech"); //Create ar
-        icon.getComponent<RawImage>().textTure = readyImage;
+        icon.SetActive(false);
+        //icon.GetComponent<RawImage>().texture = readyImage;
         button.onClick.AddListener(OnClick);
-        inputText.onValueChange.AddListener(delegate {ValueChangeCheck(); });
+        inputText.GetComponent<InputField>().onValueChanged.AddListener(delegate {ValueChangeCheck(); });
+        print("textSR");
     }
 
     void update()
@@ -76,21 +83,24 @@ public class SpeechRecognizer : MonoBehaviour
 
     void OnClick()
     {
+        print("clicked");
         m_DictationRecognizer.Start();
-        icon.getComponent<RawImage>().textTure = loadingImage;
+        icon.SetActive(true);
+        icon.GetComponent<RawImage>().texture = loadingImage;
         //Add loading icon
     }
     
     public void ValueChangeCheck()
     {
-        if(inputText.text == "")
+        print("activated");
+        if(inputText.GetComponent<InputField>().text == "")
         {
         //show all song
             SongPlateManager.instance.showAllSongs();
         }
         else
         {
-            SongPlateManager.instance.searchSong(inputText.text);
+            SongPlateManager.instance.searchSong(inputText.GetComponent<InputField>().text);
         }
     }
 }

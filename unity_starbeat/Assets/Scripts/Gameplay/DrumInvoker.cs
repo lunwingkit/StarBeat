@@ -13,7 +13,7 @@ public class DrumInvoker : MonoBehaviour {
 	void Start () {
         drum = this.gameObject;
         selector = int.Parse(drum.name.Replace("Drum", ""));
-        rend = GentComponent<Renderer>();
+        rend = GetComponent<Renderer>();
         rend.enabled = true;
         rend.sharedMaterial = beforeHitMaterial;
 	}
@@ -23,10 +23,10 @@ public class DrumInvoker : MonoBehaviour {
 	if (Input.GetKeyDown(selector.ToString()))
         {
             rend.sharedMaterial = afterHitMaterial;
-            AudioSoundEffect.instance.onPress(int.Parse(selector));
-            invokeJudgment();
+            AudioSoundEffect.instance.OnPress(selector);
+            GameObject.Find("NodeLine" + selector + "/TapPosition").GetComponent<CheckTiming>().invokeJudgment();
         }
-	else if (Input.GetKeyDown(selector.ToString()))
+	else if (Input.GetKeyUp(selector.ToString()))
 	{
             rend.sharedMaterial = beforeHitMaterial;
 	}
@@ -39,7 +39,7 @@ public class DrumInvoker : MonoBehaviour {
         {
             print(selector.ToString() + " just hit");
             rend.sharedMaterial = afterHitMaterial;
-            AudioSoundEffect.instance.onPress(selector);
+            AudioSoundEffect.instance.OnPress(selector);
             GameObject.Find("NodeLine" + selector + "/TapPosition").GetComponent<CheckTiming>().invokeJudgment();
         }
     }
@@ -52,11 +52,11 @@ public class DrumInvoker : MonoBehaviour {
     void OnMouseDown()
     {
         rend.sharedMaterial = afterHitMaterial;
-        AudioSoundEffect.instance.onPress(selector);
+        AudioSoundEffect.instance.OnPress(selector);
         GameObject.Find("NodeLine" + selector + "/TapPosition").GetComponent<CheckTiming>().invokeJudgment();
     }
 	
-    void OnMouseDown()
+    void OnMouseUp()
     {
         rend.sharedMaterial = beforeHitMaterial;
     }

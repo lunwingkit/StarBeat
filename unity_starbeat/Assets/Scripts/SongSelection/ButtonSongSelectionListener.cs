@@ -11,6 +11,7 @@ public class ButtonSongSelectionListener : MonoBehaviour {
     public GameObject songPlateContainer;
 
 
+    bool hasSelected = false;
     public float test = 0;
 
 	// Use this for initialization
@@ -83,22 +84,25 @@ public class ButtonSongSelectionListener : MonoBehaviour {
 
     public void pointerClick(Vector3 pointer, GameObject go)
     {
-        if (pointer.x >= RectTransformToScreenSpace(go.GetComponent<RectTransform>()).x &&
+        if (go != null &&
+            pointer.x >= RectTransformToScreenSpace(go.GetComponent<RectTransform>()).x &&
             pointer.x <= RectTransformToScreenSpace(go.GetComponent<RectTransform>()).x + RectTransformToScreenSpace(go.GetComponent<RectTransform>()).width &&
             pointer.y >= RectTransformToScreenSpace(go.GetComponent<RectTransform>()).y &&
             pointer.y <= RectTransformToScreenSpace(go.GetComponent<RectTransform>()).y + RectTransformToScreenSpace(go.GetComponent<RectTransform>()).height)
         {
             print(go.name);
             go.GetComponent<Button>().Select();
+            hasSelected = true;
             if (InputHandler.instance.isScreenTapping)
             {
                 go.GetComponent<Button>().onClick.Invoke();
                 InputHandler.instance.isScreenTapping = false;
             }
         }
-        else
+        else if(hasSelected == true)
         {
             GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+            hasSelected = false;
         }
     }
 

@@ -206,33 +206,34 @@ public class SongPlateManager : MonoBehaviour {
 	
     public void searchSong(string keyword)
     {
-        foreach(GameObject go in songPlateList)
-	{
-		Destroy(go);
-	}
+        foreach (GameObject go in songPlateList)
+        {
+            Destroy(go);
+        }
         songPlateList = new List<GameObject>();
-	    
-        foreach(Song song in songList)
-	{
-		if(song.songName.ToLower().Contains(keyword.ToLower())
-		{
-			songPlateList.Add(createSongPlate(song));
-		}
-	}
+        x = 0;
+        foreach (Song song in songList)
+        {
+            if (song.songName.ToLower().Contains(keyword.ToLower())){
+                songPlateList.Add(createSongPlate(song));
+            }
+        }
+        print(songPlateList.Count);
     }
 		   
     public void showAllSongs()
     {
-	    foreach(GameObject go in songPlateList)
-	{
-		Destroy(go);
-	}
+        foreach (GameObject go in songPlateList)
+        {
+            Destroy(go);
+        }
         songPlateList = new List<GameObject>();
-	    //Destroy Gameobject
-        foreach(Song song in songList)
-	{
-		songPlateList.Add(createSongPlate(song));
-	}
+        //Destroy Gameobject
+        x = 0;
+        foreach (Song song in songList)
+        {
+            songPlateList.Add(createSongPlate(song));
+        }
     }
 }
 
