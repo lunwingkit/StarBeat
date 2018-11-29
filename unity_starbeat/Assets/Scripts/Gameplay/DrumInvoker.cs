@@ -22,12 +22,14 @@ public class DrumInvoker : MonoBehaviour {
         if(collision.gameObject.name == "Drumstick(Clone)" || collision.gameObject.name == "RigidRoundHand(Clone)")
         {
             print(selector.ToString() + " just hit");
+            AudioSoundEffect.instance.onPress(selector);
             GameObject.Find("NodeLine" + selector + "/TapPosition").GetComponent<CheckTiming>().invokeJudgment();
         }
     }
 
     void OnMouseDown()
     {
+        AudioSoundEffect.instance.onPress(selector);
         GameObject.Find("NodeLine" + selector + "/TapPosition").GetComponent<CheckTiming>().invokeJudgment();
     }
 }
