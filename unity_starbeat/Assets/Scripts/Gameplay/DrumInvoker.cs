@@ -20,7 +20,16 @@ public class DrumInvoker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+	if (Input.GetKeyDown(selector.ToString()))
+        {
+            rend.sharedMaterial = afterHitMaterial;
+            AudioSoundEffect.instance.onPress(int.Parse(selector));
+            invokeJudgment();
+        }
+	else if (Input.GetKeyDown(selector.ToString()))
+	{
+            rend.sharedMaterial = beforeHitMaterial;
+	}
 	}
 
     void OnCollisionEnter(Collision collision)
